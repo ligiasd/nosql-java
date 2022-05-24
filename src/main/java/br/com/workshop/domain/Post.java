@@ -1,10 +1,13 @@
 package br.com.workshop.domain;
 
 import br.com.workshop.dto.AuthorDTO;
+import br.com.workshop.dto.CommentDTO;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Post implements Serializable {
@@ -16,6 +19,8 @@ public class Post implements Serializable {
     private String title;
     private String body;
     private AuthorDTO author;
+
+    private List<CommentDTO> comments = new ArrayList<>();
 
     public Post() {
     }
@@ -80,5 +85,13 @@ public class Post implements Serializable {
 
     public void setAuthor(AuthorDTO author) {
         this.author = author;
+    }
+
+    public List<CommentDTO> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentDTO> comments) {
+        this.comments = comments;
     }
 }
